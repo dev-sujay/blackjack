@@ -9,7 +9,7 @@ let isUserAlive = false
 let hasBlackjack = false
 let sum = 0
 const coinsEl = document.getElementById("coins")
-let coins = 10
+let coins = 200
 const content = document.querySelector(".content")
 
 // console.log(message);

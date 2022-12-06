@@ -6,7 +6,7 @@
 }
 
 body{
-    background-color: rgb(255, 255, 0);
+    background-color: #d5d1ff;
     display: flex;
     height: 100vh;
     align-items: center;
@@ -16,7 +16,6 @@ body{
     background:white;
     text-align: center;
     margin: auto;
-    box-shadow: 6px 4px 13px 0px;
     border-radius: 20px;
     -webkit-border-radius: 20px;
     -moz-border-radius: 20px;
@@ -38,7 +37,7 @@ h1{
 }
 
 h2{
-    color: crimson;
+    color: orange;
     font-size: 2rem;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif ;
     font-style: italic;
@@ -49,7 +48,7 @@ h2{
 }
 
 p{
-    color: crimson;
+    color: orange;
     font-size: 1.7rem;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif ;
     font-weight: bold;
