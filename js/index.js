@@ -9,7 +9,8 @@ let isUserAlive = false
 let hasBlackjack = false
 let sum = 0
 const coinsEl = document.getElementById("coins")
-let coins = 200
+let coins = 10
+const content = document.querySelector(".content")
 
 // console.log(message);
 // console.log(cards);
@@ -37,7 +38,7 @@ const startGame = () => {
     startBtn.classList.add("hide")
     newCardBtn.classList.replace("hide", "show")
     coins -= 5
-    coinsEl.innerHTML =`Coins Left : ${coins}`
+    coinsEl.innerHTML = `Coins Left : ${coins}`
     renderGame()
 
 }
@@ -48,17 +49,17 @@ const showNewCard = () => {
 }
 
 const renderGame = () => {
-    cardsEl.innerHTML =`Cards : ${cardsArr.join(" ")}`
+    cardsEl.innerHTML = `Cards : ${cardsArr.join(" ")}`
     sum = cardsArr.reduce((accumulator, currentValue) => {
         accumulator += currentValue
         return accumulator
     }, 0)
     sumEl.innerHTML = `Sum : ${sum}`
-    if(sum<21){
+    if (sum < 21) {
         message.innerHTML = `Please pick a new card`
         isUserAlive = true
         hasBlackjack = false
-    }else if(sum===21){
+    } else if (sum === 21) {
         message.innerHTML = `Congrats! You got a blackjack`
         isUserAlive = false
         hasBlackjack = true
@@ -67,32 +68,51 @@ const renderGame = () => {
         restartBtn.classList.replace("hide", "show")
         coins += 5
         coinsEl.innerHTML = `Coins Left : ${coins}`
-    }else{
+    } else {
         message.innerHTML = `ohh! You lost the game`
         isUserAlive = false
         hasBlackjack = false
         newCardBtn.classList.remove("show")
         newCardBtn.classList.add("hide")
         restartBtn.classList.replace("hide", "show")
-        
-    }
-    
 
+
+    }
 
 }
 
 const resetGame = () => {
     message.innerHTML = `Wanna play a round?`
-    cardsEl.innerHTML =`Cards :`
+    cardsEl.innerHTML = `Cards :`
     sumEl.innerHTML = `Sum :`
     startBtn.classList.remove("hide")
     newCardBtn.classList.remove("show")
     restartBtn.classList.replace("show", "hide")
+    if (coins <= 0) {
+        gameOver()
+        const refreshBtn = document.querySelector(".refresh")
+        refreshBtn.addEventListener("click", () => {
+            location.reload()
+        })
+    }
+
 }
+
 
 startBtn.addEventListener("click", startGame)
 newCardBtn.addEventListener("click", showNewCard)
 restartBtn.addEventListener("click", resetGame)
+
+
+const gameOver = () => {
+    content.innerHTML = `
+                       <h1>Blackjack</h1>
+                       <h2 id="message-el">Game Over !</h2>
+                       <button class="refresh btn">Play Again</button>
+                      `
+                    
+}
+
 
 
 
