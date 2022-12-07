@@ -56,11 +56,11 @@ const renderGame = () => {
     }, 0)
     sumEl.innerHTML = `Sum : ${sum}`
     if (sum < 21) {
-        message.innerHTML = `Please pick a new card`
+        message.innerHTML = `Please pick a new card 🤔`
         isUserAlive = true
         hasBlackjack = false
     } else if (sum === 21) {
-        message.innerHTML = `Congrats! You got a blackjack`
+        message.innerHTML = `Congrats! You got a blackjack 🤑`
         isUserAlive = false
         hasBlackjack = true
         newCardBtn.classList.remove("show")
@@ -69,7 +69,7 @@ const renderGame = () => {
         coins += 5
         coinsEl.innerHTML = `Coins Left : ${coins}`
     } else {
-        message.innerHTML = `ohh! You lost the game`
+        message.innerHTML = `ohh! You lost the game 😔`
         isUserAlive = false
         hasBlackjack = false
         newCardBtn.classList.remove("show")
